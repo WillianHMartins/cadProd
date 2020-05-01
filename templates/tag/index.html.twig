@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listagem de Tags
+{% endblock %}
+
+{% block body %}
+<section class="section">
+	<div class="columns is-vcentered">
+		<div class="column is-10">
+			<h1 class="title">Lista de Tags</h1>
+		</div>
+		<div class="column">
+			<a href="{{ path('tag_create') }}" class="button is-link">
+				<i class="fas fa-plus"></i>
+				&nbsp;Adicionar</a>
+		</div>
+	</div>
+
+	<nav class="breadcrumb is-right" aria-label="breadcrumbs">
+
+		<ul class="breadcrumb float-right">
+			<li>
+				<a href="{{ path('welcome') }}">
+					<span class="icon is-small">
+						<i class="fas fa-home" aria-hidden="true"></i>
+					</span>
+					<span>Home</span>
+				</a>
+			</li>
+			<li class="is-active">
+				<a href="{{ path('tag_index') }}">
+					<span class="icon is-small">
+						<i class="fas fa-tags" aria-hidden="true"></i>
+					</span>
+					<span>Tgas</span>
+				</a>
+			</li>
+		</ul>
+
+	</nav>
+
+	<hr>
+
+	<table class="table is-striped is-narrow is-hoverable is-fullwidth">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Tag</th>
+				<th>Ações</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for tag in tag %}
+				<tr>
+					<td>{{ tag.id }}</td>
+					<td>{{ tag.name }}</td>
+
+					<td class="buttons are-small">
+						<a href="{{ path('tag_edit', {'id': tag.id}) }}" class="button is-primary is-rounded">Editar</a>
+						<a href="{{ path('tag_remove', {'id': tag.id}) }}" class="button is-danger is-rounded">Remover</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</section>
+
+{% endblock %}

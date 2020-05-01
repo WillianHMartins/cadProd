@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<section class="section">
+	<div class="columns is-vcentered">
+		<div class="column is-8">
+			<h1 class="title">Editar Tgas</h1>
+		</div>
+
+		<div class="column is-4">
+			<nav class="breadcrumb is-right" aria-label="breadcrumbs">
+
+				<ul class="breadcrumb float-right">
+					<li>
+						<a href="{{ path('welcome') }}">
+							<span class="icon is-small">
+								<i class="fas fa-home" aria-hidden="true"></i>
+							</span>
+							<span>Home</span>
+						</a>
+					</li>
+					<li>
+						<a href="{{ path('tag_index') }}">
+							<span class="icon is-small">
+								<i class="fas fa-tags" aria-hidden="true"></i>
+							</span>
+							<span>Tags</span>
+						</a>
+					</li>
+					<li class="is-active">
+						<a href="#">
+							<span class="icon is-small">
+								<i class="fas fa-edit" aria-hidden="true"></i>
+							</span>
+							<span>Editar</span>
+						</a>
+					</li>
+				</ul>
+
+			</nav>
+		</div>
+
+	</div>
+	<hr>
+
+
+	{{ form_start(form) }}
+
+		<div class="field">
+			{{ form_label(form.name, null, {
+				'label': 'Nome da Tags',
+				'label_attr': {'class': 'label'}
+				}) 
+			}}
+
+			{{
+				form_widget(form.name, {
+				'attr': {'class' : 'input'}
+				})
+			}}
+		</div>
+
+	{{ form_widget(form) }}
+
+	<button type="submit" class="button is-primary is-right">Atualizar</button>
+	<a href="{{ path('tag_index') }}" class="button is-danger is-right">Cancelar</a>
+
+	{{ form_end(form) }}
+{% endblock %}
+
+{% block title %}
+	Editar Tag
+{% endblock %}

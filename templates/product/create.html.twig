@@ -1,0 +1,141 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cadastro de Produtos
+{% endblock %}
+
+{% block body %}
+	<section class="section">
+		<div class="columns is-vcentered">
+			<div class="column is-8">
+				<h1 class="title">Cadastro de Produtos</h1>
+			</div>
+		
+			<div class="column is-4">
+				<nav class="breadcrumb is-right" aria-label="breadcrumbs">
+
+					<ul class="breadcrumb float-right">
+						<li>
+							<a href="{{ path('welcome') }}">
+								<span class="icon is-small">
+									<i class="fas fa-home" aria-hidden="true"></i>
+								</span>
+								<span>Home</span>
+							</a>
+						</li>
+						<li >
+							<a href="{{ path('product_index') }}">
+								<span class="icon is-small">
+									<i class="fas fa-th" aria-hidden="true"></i>
+								</span>
+								<span>Produtos</span>
+							</a>
+						</li>
+						<li class="is-active">
+							<a href="#">
+								<span class="icon is-small">
+									<i class="fas fa-plus" aria-hidden="true"></i>
+								</span>
+								<span>Cadastrar</span>
+							</a>
+						</li>
+					</ul>
+
+				</nav>
+			</div>
+		
+		</div>
+		<hr>
+
+		<div class="example-wrapper">
+			{{ form_start(form) }}
+
+				<div class="field">
+					{{ form_label(form.title, null, {
+						'label': 'Titulo do Produto',
+						'label_attr': {'class': 'label'}
+						}) 
+					}}
+
+					{{
+						form_widget(form.title, {
+							'attr': {'class' : 'input'}
+						})
+					}}
+				</div>
+				<div class="field">
+					{{ form_label(form.price, null, {
+						'label': 'Valor',
+						'label_attr': {'class': 'label'}
+						}) 
+					}}
+
+					{{
+						form_widget(form.price, {
+							'attr': {'class' : 'input'}
+						})
+					}}
+				</div>
+				<div class="field">
+					{{ form_label(form.description, null, {
+						'label': 'Descrição do produto',
+						'label_attr': {'class': 'label'}
+						}) 
+					}}
+
+					{{
+						form_widget(form.description, {
+							'attr': {'class' : 'input'}
+						})
+					}}
+				</div>
+				<div class="field">
+					{{ form_label(form.image, null, {
+						'label': 'Foto do Produto',
+						'label_attr': {'class': 'label'}
+						}) 
+					}}
+
+					{{
+						form_widget(form.image, {
+							'attr': {'class' : 'input'}
+						})
+					}}
+				</div>
+				<div class="field">
+					{{ form_label(form.stock, null, {
+						'label': 'Quantidade em estoque',
+						'label_attr': {'class': 'label'}
+						}) 
+					}}
+
+					{{
+						form_widget(form.stock, {
+							'attr': {'class' : 'input'}
+						})
+					}}
+				</div>
+				<div class="field">
+					{{ form_label(form.tagCollection, null, {
+						'label': 'Coleção de tags',
+						'label_attr': {'class': 'label'}
+						}) 
+					}}
+
+					{{
+						form_widget(form.tagCollection, {
+							'attr': {'class' : 'input'}
+						})
+					}}
+				</div>
+
+			{{ form_widget(form ) }}
+
+				<button type="submit" class="button is-primary is-right">Cadastrar</button>
+
+				<a href="{{ path('product_index') }}" class="button is-danger is-right">Cancelar</a>
+
+
+			{{ form_end(form) }}
+		</div>
+	</section>
+{% endblock %}
